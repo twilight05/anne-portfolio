@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-white font-sans text-neutral-700 antialiased dark:bg-neutral-950 dark:text-neutral-300;
+  }
+  ::selection {
+    @apply bg-pink-500/30;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-950;
+  }
+  .btn-primary {
+    @apply btn bg-pink-600 text-white shadow-lg shadow-pink-600/25 hover:-translate-y-0.5 hover:bg-pink-700 hover:shadow-xl hover:shadow-pink-600/30 active:translate-y-0;
+  }
+  .btn-ghost {
+    @apply btn border border-neutral-300 text-neutral-800 hover:-translate-y-0.5 hover:border-pink-500 hover:text-pink-600 dark:border-neutral-700 dark:text-neutral-100 dark:hover:border-pink-400 dark:hover:text-pink-400;
+  }
+  .eyebrow {
+    @apply mb-3 inline-block rounded-full bg-pink-100 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-pink-700 dark:bg-pink-500/10 dark:text-pink-300;
+  }
+  .section-title {
+    @apply text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl dark:text-white;
+  }
+  .card {
+    @apply rounded-2xl border border-neutral-200/80 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900;
+  }
+  .input {
+    @apply w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-neutral-900 placeholder-neutral-400 transition focus:border-pink-500 focus:outline-none focus:ring-4 focus:ring-pink-500/15 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-500;
+  }
+}
+
+/* Scroll-reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
